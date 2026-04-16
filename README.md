@@ -6,31 +6,30 @@ A sleek single-page portfolio site for motion graphics work.
 
 - `index.html` — site structure and copy
 - `styles.css` — visuals, layout, and responsive styling
+- `.github/workflows/deploy.yml` — GitHub Pages deployment workflow
+
+## Current video embeds
+
+These are already wired in:
+- `https://youtu.be/Bf5BUrQCoKk`
+- `https://youtu.be/Gdk9dRHo3ME`
 
 ## Quick edits
 
-### 1. Replace video embeds
-In `index.html`, swap these iframe `src` values with your real videos:
-
-- `https://www.youtube.com/embed/dQw4w9WgXcQ`
-- `https://www.youtube.com/embed/ysz5S6PUM-U`
-
-You can use YouTube or Vimeo embed URLs.
-
-### 2. Update contact info
+### 1. Update contact info
 Replace:
 - `jack@example.com`
 
 with your real email address in both places.
 
-### 3. Update project details
+### 2. Update project details
 Edit these sections:
 - `Project One Title`
 - `Project Two Title`
 - the project descriptions
 - the bullet points under each project
 
-### 4. Optional polish
+### 3. Optional polish
 You can also tweak:
 - hero headline
 - about section copy
@@ -50,5 +49,21 @@ python3 -m http.server 8000
 Then visit:
 
 ```text
-http://localhost:8000
+http://127.0.0.1:8000
+```
+
+## Deploy to GitHub Pages
+
+1. Create a new GitHub repo
+2. Push this folder to that repo
+3. In GitHub, go to:
+   - **Settings → Pages**
+4. Ensure **GitHub Actions** is the source for Pages deployment
+5. Push to `main` or `master`
+6. GitHub will publish the site automatically
+
+Your public URL will look like:
+
+```text
+https://YOUR_GITHUB_USERNAME.github.io/REPO_NAME/
 ```
