@@ -40,7 +40,7 @@
             <p class="eyebrow">Motion Design / Visual Storytelling</p>
             <h1>Sharp motion. Clean execution.</h1>
             <p class="lede">
-              Motion graphics and editing for brands, sports, and social content.
+              Motion graphics and editing for brands, sports, and digital campaigns.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#work">View Work</a>
@@ -142,8 +142,8 @@
             <p class="eyebrow">About</p>
             <h2>Clean motion with strong pacing.</h2>
             <p>
-              I’m Jack Morris, a motion designer and editor creating sharp, modern work across sports,
-              brand, and digital content.
+              I’m Jack Morris, a motion designer and editor focused on clean visuals, clear product
+              storytelling, and high-performing creative for modern campaigns.
             </p>
           </div>
         </section>
@@ -156,6 +156,7 @@
               <p class="contact-copy">
                 Email me directly or send a quick project enquiry.
               </p>
+              <p class="contact-note">Currently based in New York and available for select freelance work.</p>
             </div>
             <div class="contact-actions">
               <a class="button button-secondary" href="mailto:jackryanmorris11@gmail.com">jackryanmorris11@gmail.com</a>
@@ -174,7 +175,7 @@
                 <button class="modal-close" type="button" id="close-enquiry-button" aria-label="Close form">×</button>
               </div>
 
-              <form id="enquiry-form" class="enquiry-form">
+              <form id="enquiry-form" class="enquiry-form" action="https://formspree.io/f/your-form-id" method="POST">
                 <label>
                   Name
                   <input type="text" name="name" placeholder="Your name" required />
@@ -188,10 +189,16 @@
                   <input type="text" name="company" placeholder="Optional" />
                 </label>
                 <label>
+                  Budget range
+                  <input type="text" name="budget" placeholder="Optional" />
+                </label>
+                <label>
                   Project details
                   <textarea name="details" rows="5" placeholder="Scope, timeline, deliverables, budget range..." required></textarea>
                 </label>
+                <input type="hidden" name="_subject" value="New work enquiry from jackmorrismotion.com" />
                 <button class="button button-primary enquiry-submit" type="submit">Send enquiry</button>
+                <p class="form-helper">Direct form delivery can be turned on by replacing the Formspree placeholder with your real endpoint.</p>
               </form>
             </div>
           </div>
@@ -234,20 +241,25 @@
       });
 
       form.addEventListener('submit', (event) => {
-        event.preventDefault();
+        const endpoint = form.getAttribute('action') || '';
 
-        const data = new FormData(form);
-        const name = data.get('name');
-        const email = data.get('email');
-        const company = data.get('company') || 'N/A';
-        const details = data.get('details');
+        if (endpoint.includes('your-form-id')) {
+          event.preventDefault();
 
-        const subject = encodeURIComponent(`Work enquiry from ${name}`);
-        const body = encodeURIComponent(
-          `Name: ${name}\nEmail: ${email}\nCompany / Brand: ${company}\n\nProject details:\n${details}`
-        );
+          const data = new FormData(form);
+          const name = data.get('name');
+          const email = data.get('email');
+          const company = data.get('company') || 'N/A';
+          const budget = data.get('budget') || 'N/A';
+          const details = data.get('details');
 
-        window.location.href = `mailto:jackryanmorris11@gmail.com?subject=${subject}&body=${body}`;
+          const subject = encodeURIComponent(`Work enquiry from ${name}`);
+          const body = encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\nCompany / Brand: ${company}\nBudget: ${budget}\n\nProject details:\n${details}`
+          );
+
+          window.location.href = `mailto:jackryanmorris11@gmail.com?subject=${subject}&body=${body}`;
+        }
       });
     </script>
   </body>
