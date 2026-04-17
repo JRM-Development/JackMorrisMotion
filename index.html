@@ -9,6 +9,23 @@
       content="Motion design portfolio for Jack Morris — sleek visuals, cinematic pacing, and brand-forward storytelling."
     />
     <meta name="theme-color" content="#0b1020" />
+    <meta property="og:title" content="Jack Morris — Motion Portfolio" />
+    <meta
+      property="og:description"
+      content="Motion graphics and editing for brands, sports, and digital campaigns."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jackmorrismotion.com/" />
+    <meta property="og:image" content="https://jackmorrismotion.com/assets/social-preview.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jack Morris — Motion Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Motion graphics and editing for brands, sports, and digital campaigns."
+    />
+    <meta name="twitter:image" content="https://jackmorrismotion.com/assets/social-preview.jpg" />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -197,7 +214,10 @@
                   <textarea name="details" rows="5" placeholder="Scope, timeline, deliverables, budget range..." required></textarea>
                 </label>
                 <input type="hidden" name="_subject" value="New work enquiry from jackmorrismotion.com" />
-                <button class="button button-primary enquiry-submit" type="submit">Send enquiry</button>
+                <button class="button button-primary enquiry-submit" type="submit">
+                  <span class="submit-label">Send enquiry</span>
+                  <span class="submit-loading" aria-hidden="true">Sending...</span>
+                </button>
                 <p class="form-helper">Project enquiries are submitted without leaving the site.</p>
               </form>
             </div>
@@ -219,6 +239,7 @@
       const closeBackdrop = document.getElementById('close-enquiry');
       const closeButton = document.getElementById('close-enquiry-button');
       const form = document.getElementById('enquiry-form');
+      const submitButton = form.querySelector('.enquiry-submit');
       const toast = document.getElementById('toast');
       const toastMessage = document.getElementById('toast-message');
 
@@ -269,6 +290,9 @@
         const endpoint = form.getAttribute('action') || '';
         const data = new FormData(form);
 
+        submitButton.disabled = true;
+        submitButton.classList.add('is-loading');
+
         if (endpoint.includes('your-form-id')) {
           const name = data.get('name');
           const email = data.get('email');
@@ -282,6 +306,8 @@
           );
 
           window.location.href = `mailto:jackryanmorris11@gmail.com?subject=${subject}&body=${body}`;
+          submitButton.disabled = false;
+          submitButton.classList.remove('is-loading');
           return;
         }
 
@@ -303,6 +329,9 @@
           showToast('Message sent successfully.');
         } catch (error) {
           showToast('Could not send message. Please try again.');
+        } finally {
+          submitButton.disabled = false;
+          submitButton.classList.remove('is-loading');
         }
       });
     </script>

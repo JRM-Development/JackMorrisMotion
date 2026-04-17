@@ -184,6 +184,11 @@ nav a:hover {
   transform: translateY(-1px);
 }
 
+.button:disabled {
+  cursor: wait;
+  opacity: 0.9;
+}
+
 .button-primary {
   color: #08101d;
   background: linear-gradient(135deg, var(--accent-2), #c7fff0);
@@ -483,6 +488,20 @@ nav a:hover {
 .enquiry-submit {
   margin-top: 6px;
   width: fit-content;
+  min-width: 148px;
+  position: relative;
+}
+
+.submit-loading {
+  display: none;
+}
+
+.enquiry-submit.is-loading .submit-label {
+  display: none;
+}
+
+.enquiry-submit.is-loading .submit-loading {
+  display: inline;
 }
 
 .form-helper {
@@ -525,6 +544,21 @@ nav a:hover {
 .toast.is-visible {
   opacity: 1;
   transform: translate(-50%, 0);
+}
+
+@keyframes toast-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -18px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.toast.is-visible {
+  animation: toast-pop 220ms ease;
 }
 
 @media (max-width: 980px) {
