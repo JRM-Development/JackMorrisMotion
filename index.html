@@ -198,9 +198,13 @@
                 </label>
                 <input type="hidden" name="_subject" value="New work enquiry from jackmorrismotion.com" />
                 <button class="button button-primary enquiry-submit" type="submit">Send enquiry</button>
-                <p class="form-helper">Project enquiries are sent directly to Jack’s inbox.</p>
+                <p class="form-helper">Project enquiries are submitted without leaving the site.</p>
               </form>
             </div>
+          </div>
+
+          <div class="toast" id="toast" hidden>
+            <span id="toast-message">Message sent successfully.</span>
           </div>
         </section>
       </main>
@@ -213,6 +217,23 @@
       const closeBackdrop = document.getElementById('close-enquiry');
       const closeButton = document.getElementById('close-enquiry-button');
       const form = document.getElementById('enquiry-form');
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toast-message');
+
+      let toastTimeout;
+
+      const showToast = (message) => {
+        toastMessage.textContent = message;
+        toast.hidden = false;
+        requestAnimationFrame(() => toast.classList.add('is-visible'));
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.classList.remove('is-visible');
+          setTimeout(() => {
+            toast.hidden = true;
+          }, 180);
+        }, 2800);
+      };
 
       const openModal = () => {
         modal.hidden = false;
@@ -240,13 +261,13 @@
         }
       });
 
-      form.addEventListener('submit', (event) => {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
         const endpoint = form.getAttribute('action') || '';
+        const data = new FormData(form);
 
         if (endpoint.includes('your-form-id')) {
-          event.preventDefault();
-
-          const data = new FormData(form);
           const name = data.get('name');
           const email = data.get('email');
           const company = data.get('company') || 'N/A';
@@ -259,6 +280,27 @@
           );
 
           window.location.href = `mailto:jackryanmorris11@gmail.com?subject=${subject}&body=${body}`;
+          return;
+        }
+
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            body: data,
+            headers: {
+              Accept: 'application/json'
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error('Submission failed');
+          }
+
+          form.reset();
+          closeModal();
+          showToast('Message sent successfully.');
+        } catch (error) {
+          showToast('Could not send message. Please try again.');
         }
       });
     </script>
