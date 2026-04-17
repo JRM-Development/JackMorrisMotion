@@ -38,25 +38,23 @@
         <section class="hero">
           <div class="hero-copy">
             <p class="eyebrow">Motion Design / Visual Storytelling</p>
-            <h1>Design that moves like it means it.</h1>
+            <h1>Sharp motion. Clean execution.</h1>
             <p class="lede">
-              I create sleek, high-impact motion work for brands, campaigns, and digital
-              storytelling — built to feel sharp, modern, and impossible to scroll past.
+              Motion graphics and editing for brands, sports, and social content.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#work">View Work</a>
-              <a class="button button-secondary" href="mailto:jack@example.com">Get in Touch</a>
+              <a class="button button-secondary" href="#contact">Work Enquiry</a>
             </div>
           </div>
 
           <div class="hero-card">
             <div class="hero-card-inner">
-              <p class="hero-label">Currently available for</p>
+              <p class="hero-label">Available for</p>
               <ul>
                 <li>Brand campaigns</li>
                 <li>Sports content</li>
-                <li>Social-first motion packages</li>
-                <li>Freelance collaborations</li>
+                <li>Freelance projects</li>
               </ul>
             </div>
           </div>
@@ -65,11 +63,11 @@
         <section class="stats">
           <div class="stat-card">
             <span>Style</span>
-            <strong>Clean / Cinematic / Fast</strong>
+            <strong>Clean / Fast / Modern</strong>
           </div>
           <div class="stat-card">
             <span>Focus</span>
-            <strong>Motion Graphics + Editing</strong>
+            <strong>Motion + Edit</strong>
           </div>
           <div class="stat-card">
             <span>Based In</span>
@@ -80,10 +78,9 @@
         <section id="work" class="section section-work">
           <div class="section-heading">
             <p class="eyebrow">Selected Work</p>
-            <h2>Two pieces. Built to feel premium.</h2>
+            <h2>Recent motion work.</h2>
             <p>
-              Drop in your Vimeo, YouTube, or direct video links below. The layout is already set up
-              for a polished presentation.
+              Two examples of clean, high-impact motion built for digital audiences.
             </p>
           </div>
 
@@ -100,15 +97,14 @@
                   <span>01</span>
                   <span>Campaign / Motion Design</span>
                 </div>
-                <h3>Project One Title</h3>
+                <h3>TBG Picks Ad</h3>
                 <p>
-                  A short, sharp description of the piece — what it was for, what kind of visual
-                  language it used, and why it matters.
+                  A sharp promo built to feel fast, premium, and native to modern sports media.
                 </p>
                 <ul>
-                  <li>Art direction</li>
-                  <li>Animation</li>
-                  <li>Edit + finishing</li>
+                  <li>Motion design</li>
+                  <li>Editing</li>
+                  <li>Finishing</li>
                 </ul>
               </div>
             </article>
@@ -125,15 +121,14 @@
                   <span>02</span>
                   <span>Sports / Social Content</span>
                 </div>
-                <h3>Project Two Title</h3>
+                <h3>Three Points Thursdays</h3>
                 <p>
-                  Use this space to explain the brief, your role, and the feel of the final result.
-                  Keep it concise and confident.
+                  Social-first sports content designed for pace, clarity, and strong visual rhythm.
                 </p>
                 <ul>
-                  <li>Concept development</li>
+                  <li>Creative direction</li>
                   <li>Motion systems</li>
-                  <li>Delivery for digital</li>
+                  <li>Social delivery</li>
                 </ul>
               </div>
             </article>
@@ -143,11 +138,10 @@
         <section id="about" class="section about-section">
           <div class="section-heading narrow">
             <p class="eyebrow">About</p>
-            <h2>Motion work with taste, rhythm, and restraint.</h2>
+            <h2>Clean motion with strong pacing.</h2>
             <p>
-              I’m Jack Morris, a motion designer and editor focused on sharp visual storytelling.
-              My work sits at the intersection of clean design, sports energy, and modern brand
-              aesthetics.
+              I’m Jack Morris, a motion designer and editor creating sharp, modern work across sports,
+              brand, and digital content.
             </p>
           </div>
         </section>
@@ -156,11 +150,99 @@
           <div class="contact-card">
             <div>
               <p class="eyebrow">Contact</p>
-              <h2>Let’s make something that looks expensive.</h2>
+              <h2>Let’s work together.</h2>
+              <p class="contact-copy">
+                Email me directly or send a quick project enquiry.
+              </p>
             </div>
-            <a class="button button-primary" href="mailto:jack@example.com">jack@example.com</a>
+            <div class="contact-actions">
+              <a class="button button-secondary" href="mailto:jackryanmorris11@gmail.com">jackryanmorris11@gmail.com</a>
+              <button class="button button-primary" type="button" id="open-enquiry">Open enquiry form</button>
+            </div>
+          </div>
+
+          <div class="enquiry-modal" id="enquiry-modal" hidden>
+            <div class="enquiry-backdrop" id="close-enquiry"></div>
+            <div class="enquiry-dialog" role="dialog" aria-modal="true" aria-labelledby="enquiry-title">
+              <div class="enquiry-header">
+                <div>
+                  <p class="eyebrow">Work Enquiry</p>
+                  <h3 id="enquiry-title">Tell me about your project.</h3>
+                </div>
+                <button class="modal-close" type="button" id="close-enquiry-button" aria-label="Close form">×</button>
+              </div>
+
+              <form id="enquiry-form" class="enquiry-form">
+                <label>
+                  Name
+                  <input type="text" name="name" placeholder="Your name" required />
+                </label>
+                <label>
+                  Email
+                  <input type="email" name="email" placeholder="you@example.com" required />
+                </label>
+                <label>
+                  Company / Brand
+                  <input type="text" name="company" placeholder="Optional" />
+                </label>
+                <label>
+                  Project details
+                  <textarea name="details" rows="5" placeholder="Scope, timeline, deliverables, budget range..." required></textarea>
+                </label>
+                <button class="button button-primary enquiry-submit" type="submit">Send enquiry</button>
+              </form>
+            </div>
           </div>
         </section>
+      </main>
+    </div>
+
+    <script>
+      const modal = document.getElementById('enquiry-modal');
+      const openButton = document.getElementById('open-enquiry');
+      const closeBackdrop = document.getElementById('close-enquiry');
+      const closeButton = document.getElementById('close-enquiry-button');
+      const form = document.getElementById('enquiry-form');
+
+      const openModal = () => {
+        modal.hidden = false;
+        document.body.classList.add('modal-open');
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.body.classList.remove('modal-open');
+      };
+
+      openButton.addEventListener('click', openModal);
+      closeBackdrop.addEventListener('click', closeModal);
+      closeButton.addEventListener('click', closeModal);
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !modal.hidden) {
+          closeModal();
+        }
+      });
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const data = new FormData(form);
+        const name = data.get('name');
+        const email = data.get('email');
+        const company = data.get('company') || 'N/A';
+        const details = data.get('details');
+
+        const subject = encodeURIComponent(`Work enquiry from ${name}`);
+        const body = encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\nCompany / Brand: ${company}\n\nProject details:\n${details}`
+        );
+
+        window.location.href = `mailto:jackryanmorris11@gmail.com?subject=${subject}&body=${body}`;
+      });
+    </script>
+  </body>
+</html>
       </main>
     </div>
   </body>
