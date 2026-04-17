@@ -44,7 +44,7 @@
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#work">View Work</a>
-              <a class="button button-secondary" href="#contact">Work Enquiry</a>
+              <button class="button button-secondary" type="button" id="open-enquiry-hero">Work Enquiry</button>
             </div>
           </div>
 
@@ -200,6 +200,7 @@
     <script>
       const modal = document.getElementById('enquiry-modal');
       const openButton = document.getElementById('open-enquiry');
+      const openHeroButton = document.getElementById('open-enquiry-hero');
       const closeBackdrop = document.getElementById('close-enquiry');
       const closeButton = document.getElementById('close-enquiry-button');
       const form = document.getElementById('enquiry-form');
@@ -215,6 +216,7 @@
       };
 
       openButton.addEventListener('click', openModal);
+      openHeroButton.addEventListener('click', openModal);
       closeBackdrop.addEventListener('click', closeModal);
       closeButton.addEventListener('click', closeModal);
 
@@ -241,9 +243,5 @@
         window.location.href = `mailto:jackryanmorris11@gmail.com?subject=${subject}&body=${body}`;
       });
     </script>
-  </body>
-</html>
-      </main>
-    </div>
   </body>
 </html>
