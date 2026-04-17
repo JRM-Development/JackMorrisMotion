@@ -215,10 +215,15 @@
         document.body.classList.remove('modal-open');
       };
 
+      closeModal();
+
       openButton.addEventListener('click', openModal);
       openHeroButton.addEventListener('click', openModal);
       closeBackdrop.addEventListener('click', closeModal);
-      closeButton.addEventListener('click', closeModal);
+      closeButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        closeModal();
+      });
 
       document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && !modal.hidden) {

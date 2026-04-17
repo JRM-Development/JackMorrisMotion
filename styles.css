@@ -378,6 +378,10 @@ nav a:hover {
   padding: 24px;
 }
 
+.enquiry-modal[hidden] {
+  display: none !important;
+}
+
 .enquiry-backdrop {
   position: absolute;
   inset: 0;
