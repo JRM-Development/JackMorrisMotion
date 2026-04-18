@@ -304,6 +304,10 @@ nav a:hover {
   background: linear-gradient(180deg, rgba(15, 21, 40, 0.98), rgba(11, 16, 32, 0.88));
 }
 
+.project-card-reverse {
+  grid-template-columns: 0.8fr 1.2fr;
+}
+
 .project-card-reverse .project-media {
   order: 2;
 }
