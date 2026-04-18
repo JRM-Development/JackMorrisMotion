@@ -571,23 +571,34 @@ nav a:hover {
 
 @media (max-width: 980px) {
   .hero,
-  .project-card,
-  .contact-card {
+  .project-card {
     grid-template-columns: 1fr;
   }
 
   .hero {
     padding-top: 56px;
+    gap: 20px;
   }
 
   .stats {
     grid-template-columns: 1fr;
   }
 
+  .project-card-reverse .project-media,
+  .project-card-reverse .project-copy {
+    order: initial;
+  }
+
   .project-media,
   .project-media iframe,
   .project-media video {
     min-height: 300px;
+  }
+
+  .contact-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: flex-start;
   }
 
   .contact-actions {
@@ -611,12 +622,61 @@ nav a:hover {
     width: min(calc(100% - 24px), var(--container));
   }
 
+  .topbar {
+    position: static;
+    padding: 18px 0 0;
+  }
+
+  .brand {
+    max-width: 100%;
+  }
+
+  .hero {
+    padding: 40px 0 28px;
+  }
+
   .hero h1 {
     max-width: 100%;
+    font-size: clamp(2.7rem, 14vw, 4.1rem);
+    line-height: 0.98;
   }
 
   .lede {
     font-size: 1rem;
+  }
+
+  .hero-actions,
+  .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .button,
+  .contact-actions .button,
+  .contact-actions a,
+  .enquiry-submit {
+    width: 100%;
+  }
+
+  .section {
+    padding: 28px 0;
+  }
+
+  .section-heading h2,
+  .contact-card h2 {
+    max-width: 100%;
+  }
+
+  .project-media,
+  .project-media iframe,
+  .project-media video {
+    min-height: 220px;
+  }
+
+  .project-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
 
   .project-copy,
@@ -629,5 +689,38 @@ nav a:hover {
 
   .enquiry-modal {
     padding: 16px;
+    align-items: end;
+  }
+
+  .enquiry-dialog {
+    width: 100%;
+    max-height: min(82vh, 760px);
+    border-radius: 22px;
+  }
+
+  .toast {
+    top: auto;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    transform: translateY(18px);
+    white-space: normal;
+    border-radius: 18px;
+  }
+
+  .toast.is-visible {
+    transform: translateY(0);
+  }
+
+  @keyframes toast-pop {
+    0% {
+      opacity: 0;
+      transform: translateY(18px) scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 }
