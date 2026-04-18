@@ -301,6 +301,14 @@ nav a:hover {
   background: linear-gradient(180deg, rgba(15, 21, 40, 0.98), rgba(11, 16, 32, 0.88));
 }
 
+.project-card-reverse .project-media {
+  order: 2;
+}
+
+.project-card-reverse .project-copy {
+  order: 1;
+}
+
 .project-media {
   min-height: 340px;
   background: #02050c;
