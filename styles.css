@@ -243,7 +243,8 @@ nav a:hover {
 
 .stat-card,
 .project-card,
-.contact-card {
+.contact-card,
+.service-card {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -354,6 +355,27 @@ nav a:hover {
 
 .project-copy p {
   margin: 0 0 18px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.service-card {
+  padding: 24px;
+}
+
+.service-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.service-card p {
+  margin: 0;
   color: var(--muted);
   line-height: 1.65;
 }
@@ -591,6 +613,10 @@ nav a:hover {
   }
 
   .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
     grid-template-columns: 1fr;
   }
 
