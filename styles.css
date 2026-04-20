@@ -87,11 +87,17 @@ body::selection {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 28px 0 8px;
+  padding: 18px 20px;
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 40;
+  width: min(calc(100% - 32px), var(--container));
+  margin: 0 auto;
+  background: rgba(7, 11, 22, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .brand {
@@ -177,14 +183,32 @@ nav a:hover {
   border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
-  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
   border: 0;
   cursor: pointer;
   font: inherit;
 }
 
+@keyframes card-wiggle {
+  0% { transform: scale(1.02) translateY(-3px) rotate(0deg); }
+  25% { transform: scale(1.02) translateY(-3px) rotate(0.4deg); }
+  50% { transform: scale(1.02) translateY(-3px) rotate(-0.4deg); }
+  75% { transform: scale(1.02) translateY(-3px) rotate(0.25deg); }
+  100% { transform: scale(1.02) translateY(-3px) rotate(0deg); }
+}
+
 .button:hover {
-  transform: translateY(-1px);
+  transform: scale(1.02) translateY(-1px);
+}
+
+.stat-card:hover,
+.project-card:hover,
+.contact-card:hover,
+.service-card:hover,
+.hero-card:hover,
+.enquiry-dialog:hover,
+.button:hover {
+  animation: card-wiggle 260ms ease-in-out;
+  transform: scale(1.02) translateY(-3px);
 }
 
 .button:disabled {
@@ -239,6 +263,16 @@ nav a:hover {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   padding-bottom: 20px;
+}
+
+.stat-card,
+.project-card,
+.contact-card,
+.service-card,
+.hero-card,
+.enquiry-dialog,
+.button {
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
 .stat-card,
@@ -642,7 +676,7 @@ nav a:hover {
   }
 
   .topbar {
-    padding-top: 18px;
+    padding: 16px 18px;
   }
 }
 
@@ -663,8 +697,10 @@ nav a:hover {
   }
 
   .topbar {
-    position: static;
-    padding: 18px 0 0;
+    position: sticky;
+    top: 12px;
+    padding: 14px 16px;
+    width: min(calc(100% - 24px), var(--container));
   }
 
   .brand {
