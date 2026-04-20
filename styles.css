@@ -47,7 +47,7 @@ body::selection {
 
 .site-shell {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .ambient {
@@ -188,14 +188,6 @@ nav a:hover {
   font: inherit;
 }
 
-@keyframes card-wiggle {
-  0% { transform: scale(1.02) translateY(-3px) rotate(0deg); }
-  25% { transform: scale(1.02) translateY(-3px) rotate(0.4deg); }
-  50% { transform: scale(1.02) translateY(-3px) rotate(-0.4deg); }
-  75% { transform: scale(1.02) translateY(-3px) rotate(0.25deg); }
-  100% { transform: scale(1.02) translateY(-3px) rotate(0deg); }
-}
-
 .button:hover {
   transform: scale(1.02) translateY(-1px);
 }
@@ -205,9 +197,7 @@ nav a:hover {
 .contact-card:hover,
 .service-card:hover,
 .hero-card:hover,
-.enquiry-dialog:hover,
-.button:hover {
-  animation: card-wiggle 260ms ease-in-out;
+.enquiry-dialog:hover {
   transform: scale(1.02) translateY(-3px);
 }
 
